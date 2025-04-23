@@ -1,3 +1,6 @@
+import module.Book;
+import controller.BookController;
+
 public class App {
     public static void main(String[] args) throws Exception {
 
@@ -34,5 +37,19 @@ public class App {
                 new Book("The Elements of Statistical Learning", 2001)
         };
 
+        for (int i=0;i<books.length;i++){
+            System.out.println(books[i].toString());
+        }
+        BookController controller=new BookController();
+        controller.sortByName(books);
+        System.out.println("***********************************************");
+        for (int i=0;i<books.length;i++){
+            System.out.println(books[i].toString());
+        }
+        Book resultado = controller.searchByYear(books,1994);
+        System.out.println("Buscando...");
+        System.out.println(resultado.toString());
+        Book resultado2 = controller.searchByYear(books,1983);
+        System.out.println(resultado2.toString());
     }
 }
